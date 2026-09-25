@@ -25,7 +25,7 @@
   "email": "admin@madrid-student-living.com",
   "telephone": "+447729350595",
   "areaServed": { "@type": "City", "name": "Madrid" },
-  "address": { "@type": "PostalAddress", "streetAddress": "Avenida Reina Victoria, 51", "addressLocality": "Madrid", "addressCountry": "ES" }
+  "address": { "@type": "PostalAddress", "streetAddress": "Avenida Reina Victoria", "addressLocality": "Madrid", "addressCountry": "ES" }
 }
 </script>
 
@@ -96,15 +96,15 @@
   #notice button:hover{opacity:1;}
 
   header{position:sticky; top:0; z-index:50; background:rgba(54,54,54,0.96); backdrop-filter:blur(6px);}
-  .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 24px; gap:20px;}
-  .brand{display:flex; align-items:center; gap:10px; color:var(--cream);}
+  .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 16px; gap:12px;}
+  .brand{display:flex; align-items:center; gap:8px; color:var(--cream); flex:none;}
   .brand img{height:34px; width:34px; border-radius:8px;}
   .brand strong{font-family:'Playfair Display', serif; font-size:18px; font-weight:600; color:var(--cream); white-space:nowrap;}
-  nav.links{display:flex; align-items:center; gap:26px;}
-  nav.links a{color:var(--cream); opacity:.85; font-size:14.5px; font-weight:500;}
+  nav.links{display:flex; align-items:center; gap:15px;}
+  nav.links a{color:var(--cream); opacity:.85; font-size:13px; font-weight:500; white-space:nowrap;}
   nav.links a:hover{opacity:1; color:var(--gold-light);}
   nav.links .current{color:var(--gold-light); opacity:1; font-weight:700; cursor:default; pointer-events:none;}
-  .nav-right{display:flex; align-items:center; gap:14px;}
+  .nav-right{display:flex; align-items:center; gap:10px;}
   .lang-toggle{display:flex; border:1px solid rgba(247,245,241,0.35); border-radius:999px; overflow:hidden;}
   .lang-toggle button{background:none; border:none; color:var(--cream); opacity:.7; padding:6px 12px; font-size:12.5px; font-weight:700;}
   .lang-toggle button.active{background:var(--gold-2); opacity:1;}
@@ -262,13 +262,25 @@
   footer .brand strong{color:var(--cream); font-size:16px;}
   .foot-bottom{border-top:1px solid rgba(255,255,255,.08); padding-top:20px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; color:#8f8b83; font-size:12.5px;}
 
+  .repairs-banner{position:relative; overflow:hidden; margin-top:56px; background:#161412; border-radius:var(--radius); padding:60px 40px; text-align:center;}
+  .repairs-glow{position:absolute; top:-220px; left:50%; transform:translateX(-50%); width:640px; height:640px; border-radius:50%; background:radial-gradient(circle, rgba(232,185,107,0.22), transparent 70%); pointer-events:none;}
+  .repairs-eyebrow{position:relative; display:inline-block; color:#e8b96b; font-weight:800; font-size:13px; letter-spacing:.14em; text-transform:uppercase;}
+  .repairs-headline{position:relative; font-family:'Playfair Display', serif; font-weight:800; font-size:clamp(28px,4vw,46px); line-height:1.12; color:#ffffff; max-width:780px; margin:16px auto 0;}
+  .repairs-headline em{color:#e8b96b; font-style:italic;}
+  .repairs-list{position:relative; display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:40px; text-align:left;}
+  @media (max-width:760px){.repairs-list{grid-template-columns:1fr;}}
+  .repairs-item{background:rgba(247,245,241,0.06); border:1px solid rgba(247,245,241,.16); border-radius:14px; padding:22px;}
+  .repairs-item .repairs-tag{display:block; color:#e8b96b; font-size:12.5px; font-weight:800; text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px;}
+  .repairs-item p{color:#d9d4cb; font-size:14.5px; line-height:1.55; margin:0;}
+  .repairs-final{position:relative; margin:32px auto 0; max-width:640px; font-size:18px; font-weight:800; color:#f7f5f1;}
+  .repairs-final span{color:#e8b96b;}
 </style>
 </head>
 <body>
 
 <div id="notice">
   <div class="wrap">
-    <span data-i18n="notice.text">Sitio en construccion: precios por habitacion y fotos definitivas estan pendientes de confirmar.</span>
+    <span data-i18n="notice.text">Sitio en construcción: precios por habitación y fotos definitivas están pendientes de confirmar.</span>
     <button id="notice-close" aria-label="Cerrar aviso">&times;</button>
   </div>
 </div>
@@ -286,6 +298,7 @@
       <a href="como-funciona.html"><span data-i18n="nav.how">Cómo funciona</span></a>
       <a class="current" aria-current="page"><span data-i18n="nav.owners">Propietarios</span></a>
       <a href="nosotros.html"><span data-i18n="nav.about">Nosotros</span></a>
+      <a href="blog.html"><span data-i18n="nav.blog">Qué pasa en Madrid</span></a>
       <a href="contacto.html"><span data-i18n="nav.contact">Contacto</span></a>
     </nav>
     <div class="nav-right">
@@ -303,6 +316,7 @@
       <a href="como-funciona.html"><span data-i18n="nav.how">Cómo funciona</span></a>
       <a class="current" aria-current="page"><span data-i18n="nav.owners">Propietarios</span></a>
       <a href="nosotros.html"><span data-i18n="nav.about">Nosotros</span></a>
+      <a href="blog.html"><span data-i18n="nav.blog">Qué pasa en Madrid</span></a>
       <a href="contacto.html"><span data-i18n="nav.contact">Contacto</span></a>
   </div>
 </header>
@@ -314,8 +328,8 @@
       <div class="owners-grid">
         <div>
           <span class="eyebrow" style="color:var(--gold-light);" data-i18n="owners.eyebrow">Para propietarios</span>
-          <h1 style="color:var(--white);" data-i18n="owners.title">Te garantizamos el alquiler de tu piso. Si, siempre.</h1>
-          <p style="color:#d9d4cb;" data-i18n="owners.subtitle">Somos una empresa de rent to rent.</p>
+          <h1 style="color:var(--white);" data-i18n="owners.title">Te garantizamos el alquiler cada mes, y cero dolores de cabeza. Así somos.</h1>
+          <p style="color:#d9d4cb;" data-i18n="owners.subtitle">Firmamos un contrato de alquiler directamente contigo: nos convertimos en tu único inquilino. Nosotros nos encargamos de que tu piso esté ocupado por habitaciones, y el coste de ello lo asumimos nosotros: tu solo recibes la renta.</p>
           <ul>
             <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="owners.b1">Morosidad 0.</span></li>
             <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="owners.b2">Deuda 0.</span></li>
@@ -325,16 +339,29 @@
           <a href="contacto.html" class="btn btn-gold" data-i18n="owners.cta">Garantiza tu alquiler hoy</a>
         </div>
         <div class="owners-card">
-          <h3 style="color:var(--white);" data-i18n="owners.card_title">Como lo hacemos?</h3>
-          <p style="color:#d9d4cb;" data-i18n="owners.card_body">Firmamos un contrato de alquiler directamente contigo.</p>
+          <h3 style="color:var(--white);" data-i18n="owners.card_title">Así trabajamos</h3>
+          <p style="color:#d9d4cb;" data-i18n="owners.card_body">Somos una empresa de arrendamiento enfocada en dar soluciones tanto a los inquilinos como a vosotros, los propietarios. Te garantizamos la renta cada mes, nos encargamos de reparar los pequeños desperfectos que van surgiendo con el uso, y nos ocupamos del mantenimiento y la limpieza semanal del piso. Todo lo que tienes que hacer? Disfrutar del retorno de tu inversión.</p>
         </div>
       </div>
       <div class="guarantee-grid">
         <div class="guarantee-card"><div class="guarantee-num">0%</div><div class="guarantee-label" data-i18n="owners.g1_label">Morosidad</div><p data-i18n="owners.g1_body">Nunca dejas de cobrar por un inquilino que no paga.</p></div>
         <div class="guarantee-card"><div class="guarantee-num">0&euro;</div><div class="guarantee-label" data-i18n="owners.g2_label">Deuda para ti</div><p data-i18n="owners.g2_body">El riesgo de impago o de piso vacio es nuestro, no tuyo.</p></div>
-        <div class="guarantee-card"><div class="guarantee-num">0%</div><div class="guarantee-label" data-i18n="owners.g3_label">Comision</div><p data-i18n="owners.g3_body">No cobramos por gestionar tu piso.</p></div>
+        <div class="guarantee-card"><div class="guarantee-num">0%</div><div class="guarantee-label" data-i18n="owners.g3_label">Comisión</div><p data-i18n="owners.g3_body">No cobramos por gestionar tu piso.</p></div>
       </div>
-      <p class="owners-fineprint" data-i18n="owners.fineprint">Condiciones sujetas al contrato de garantia de alquiler.</p>
+      <p class="owners-fineprint" data-i18n="owners.fineprint">Condiciones sujetas al contrato de garantía de alquiler.</p>
+
+      <div class="repairs-banner">
+        <div class="repairs-glow"></div>
+        <span class="repairs-eyebrow" data-i18n="owners.repairs.eyebrow">Cero esfuerzo para ti</span>
+        <h2 class="repairs-headline" data-i18n="owners.repairs.title">Tu solo recibes beneficios. <em>Nosotros gestionamos el dolor de cabeza.</em></h2>
+        <div class="repairs-list">
+          <div class="repairs-item"><span class="repairs-tag" data-i18n="owners.repairs.t1">Reparaciones</span><p data-i18n="owners.repairs.b1">Una gotera, una caldera rota, un enchufe que falla: lo arreglamos y lo pagamos nosotros. Tu no mueves un dedo.</p></div>
+          <div class="repairs-item"><span class="repairs-tag" data-i18n="owners.repairs.t2">Inquilinos</span><p data-i18n="owners.repairs.b2">Los buscamos, los seleccionamos y resolvemos cualquier incidencia con ellos. Tu no hablas con nadie si no quieres.</p></div>
+          <div class="repairs-item"><span class="repairs-tag" data-i18n="owners.repairs.t3">Tu</span><p data-i18n="owners.repairs.b3">Cobras tu renta integra cada mes. Nada de gestiones, nada de sustos, nada de letra pequeña.</p></div>
+        </div>
+        <p class="repairs-final" data-i18n="owners.repairs.final">Gestionamos tu propiedad como lo que es: <span>un activo.</span></p>
+      </div>
+
     </div>
   </section>
 </main>
@@ -351,7 +378,7 @@
         <p data-i18n="footer.tagline">Alquiler de habitaciones en pisos compartidos en el centro de Madrid.</p>
       </div>
       <div>
-        <h5 data-i18n="footer.nav_title">Navegacion</h5>
+        <h5 data-i18n="footer.nav_title">Navegación</h5>
         <a href="habitaciones.html" style="display:block; margin-bottom:8px;" data-i18n="nav.rooms">Habitaciones</a>
         <a href="propietarios.html" style="display:block; margin-bottom:8px;" data-i18n="nav.owners">Propietarios</a>
         <a href="contacto.html" style="display:block;" data-i18n="nav.contact">Contacto</a>
@@ -359,14 +386,14 @@
       <div>
         <h5 data-i18n="footer.legal_title">Legal</h5>
         <p style="margin:0 0 6px;">Madrid Student Living SL</p>
-        <p style="margin:0 0 6px;">Avenida Reina Victoria, 51 &middot; Madrid</p>
-        <p style="margin:0 0 6px;">CIF: [CIF PENDIENTE]</p>
+        <p style="margin:0 0 6px;">Avenida Reina Victoria &middot; Madrid</p>
+        <p style="margin:0 0 6px;">CIF: B19869965</p>
         <p style="margin:0;"><a href="mailto:admin@madrid-student-living.com">admin@madrid-student-living.com</a> &middot; <a href="tel:+447729350595">+44 7729 350595</a></p>
       </div>
     </div>
     <div class="foot-bottom">
       <span>&copy; <span id="year"></span> Madrid Student Living SL. <span data-i18n="footer.rights">Todos los derechos reservados.</span></span>
-      <span data-i18n="footer.made">Madrid, Espana</span>
+      <span data-i18n="footer.made">Madrid, España</span>
     </div>
   </div>
 </footer>
@@ -375,7 +402,7 @@
 
 (function(){
   "use strict";
-  var I18N = {"es": {"notice.text": "Sitio en construccion: precios por habitacion y fotos definitivas estan pendientes de confirmar.", "nav.home": "Inicio", "nav.rooms": "Habitaciones", "nav.how": "Como funciona", "nav.owners": "Propietarios", "nav.about": "Nosotros", "nav.contact": "Contacto", "nav.cta": "Ver habitaciones", "footer.tagline": "Alquiler de habitaciones en pisos compartidos en el centro de Madrid.", "footer.nav_title": "Navegacion", "footer.legal_title": "Legal", "footer.rights": "Todos los derechos reservados.", "footer.made": "Madrid, Espana", "owners.eyebrow": "Para propietarios", "owners.title": "Te garantizamos el alquiler de tu piso. Si, siempre.", "owners.subtitle": "Somos una empresa de rent to rent: alquilamos tu piso directamente y te pagamos la renta y los suministros todos los meses, haya o no haya inquilino dentro.", "owners.b1": "Morosidad 0: cobras tu alquiler cada mes, sin excusas ni retrasos.", "owners.b2": "Deuda 0: el riesgo de impago o de piso vacio lo asumimos nosotros, no tu.", "owners.b3": "Sin comisiones: no te cobramos por gestionar tu piso.", "owners.b4": "Suministros cubiertos: agua, luz e internet tambien garantizados.", "owners.cta": "Garantiza tu alquiler hoy", "owners.card_title": "Como lo hacemos?", "owners.card_body": "Firmamos un contrato de alquiler directamente contigo: nos convertimos en tu unico inquilino. Nosotros subarrendamos las habitaciones y asumimos el riesgo de ocupacion. Tu cobras cada mes, este el piso lleno o no.", "owners.g1_label": "Morosidad", "owners.g1_body": "Nunca dejas de cobrar por un inquilino que no paga.", "owners.g2_label": "Deuda para ti", "owners.g2_body": "El riesgo de impago o de piso vacio es nuestro, no tuyo.", "owners.g3_label": "Comision", "owners.g3_body": "No cobramos por gestionar tu piso. Solo garantizamos tu renta.", "owners.fineprint": "Condiciones sujetas al contrato de garantia de alquiler firmado con cada propietario/a. Te lo explicamos todo antes de firmar nada."}, "en": {"notice.text": "Site under construction: room prices and final photos are pending confirmation.", "nav.home": "Home", "nav.rooms": "Rooms", "nav.how": "How it works", "nav.owners": "Landlords", "nav.about": "About", "nav.contact": "Contact", "nav.cta": "See rooms", "footer.tagline": "Room rentals in shared flats in central Madrid.", "footer.nav_title": "Navigation", "footer.legal_title": "Legal", "footer.rights": "All rights reserved.", "footer.made": "Madrid, Spain", "owners.eyebrow": "For landlords", "owners.title": "We guarantee your rent. Yes, always.", "owners.subtitle": "We're a rent-to-rent company: we lease your flat directly and pay you the rent and utilities every month, whether or not there's a tenant inside.", "owners.b1": "0% arrears: you get paid every month, no excuses, no delays.", "owners.b2": "0 debt: we take on the risk of non-payment or an empty flat, not you.", "owners.b3": "No commissions: we don't charge you to manage your flat.", "owners.b4": "Utilities covered: water, electricity and internet, also guaranteed.", "owners.cta": "Guarantee your rent today", "owners.card_title": "How does it work?", "owners.card_body": "We sign a lease directly with you: we become your one and only tenant. We then sublet the rooms and take on the occupancy risk. You get paid every month, whether the flat is full or not.", "owners.g1_label": "Arrears", "owners.g1_body": "You never stop getting paid because a tenant didn't.", "owners.g2_label": "Debt for you", "owners.g2_body": "The risk of non-payment or an empty flat is ours, not yours.", "owners.g3_label": "Commission", "owners.g3_body": "We don't charge to manage your flat. We just guarantee your rent.", "owners.fineprint": "Subject to the rent-guarantee contract signed with each landlord. We'll walk you through everything before you sign anything."}};
+  var I18N = {"es": {"notice.text": "Sitio en construcción: precios por habitación y fotos definitivas están pendientes de confirmar.", "nav.home": "Inicio", "nav.rooms": "Habitaciones", "nav.how": "Cómo funciona", "nav.owners": "Propietarios", "nav.about": "Nosotros", "nav.contact": "Contacto", "nav.cta": "Ver habitaciones", "nav.blog": "Qué pasa en Madrid", "footer.tagline": "Alquiler de habitaciones en pisos compartidos en el centro de Madrid.", "footer.nav_title": "Navegación", "footer.legal_title": "Legal", "footer.rights": "Todos los derechos reservados.", "footer.made": "Madrid, España", "owners.eyebrow": "Para propietarios", "owners.title": "Te garantizamos el alquiler cada mes, y cero dolores de cabeza. Así somos.", "owners.subtitle": "Firmamos un contrato de alquiler directamente contigo: nos convertimos en tu único inquilino. Nosotros nos encargamos de que tu piso esté ocupado por habitaciones, y el coste de ello lo asumimos nosotros: tu solo recibes la renta.", "owners.b1": "Morosidad 0: cobras tu alquiler cada mes, sin excusas ni retrasos.", "owners.b2": "Deuda 0: el riesgo de impago o de piso vacio lo asumimos nosotros, no tuyo.", "owners.b3": "Sin comisiones: no te cobramos por gestionar tu piso.", "owners.b4": "Suministros cubiertos: agua, luz e internet también garantizados.", "owners.cta": "Garantiza tu alquiler hoy", "owners.card_title": "Así trabajamos", "owners.card_body": "Somos una empresa de arrendamiento enfocada en dar soluciones tanto a los inquilinos como a vosotros, los propietarios. Te garantizamos la renta cada mes, nos encargamos de reparar los pequeños desperfectos que van surgiendo con el uso, y nos ocupamos del mantenimiento y la limpieza semanal del piso. Todo lo que tienes que hacer? Disfrutar del retorno de tu inversión.", "owners.g1_label": "Morosidad", "owners.g1_body": "Nunca dejas de cobrar por un inquilino que no paga.", "owners.g2_label": "Deuda para ti", "owners.g2_body": "El riesgo de impago o de piso vacio es nuestro, no tuyo.", "owners.g3_label": "Comisión", "owners.g3_body": "No cobramos por gestionar tu piso. Solo garantizamos tu renta.", "owners.fineprint": "Condiciones sujetas al contrato de garantía de alquiler firmado con cada propietario/a. Te lo explicamos todo antes de firmar nada.", "owners.repairs.eyebrow": "Cero esfuerzo para ti", "owners.repairs.title": "Tu solo recibes beneficios. <em>Nosotros gestionamos el dolor de cabeza.</em>", "owners.repairs.t1": "Reparaciones", "owners.repairs.b1": "Una gotera, una caldera rota, un enchufe que falla: lo arreglamos y lo pagamos nosotros. Tu no mueves un dedo.", "owners.repairs.t2": "Inquilinos", "owners.repairs.b2": "Los buscamos, los seleccionamos y resolvemos cualquier incidencia con ellos. Tu no hablas con nadie si no quieres.", "owners.repairs.t3": "Tu", "owners.repairs.b3": "Cobras tu renta integra cada mes. Nada de gestiones, nada de sustos, nada de letra pequeña.", "owners.repairs.final": "Gestionamos tu propiedad como lo que es: <span>un activo.</span>"}, "en": {"notice.text": "Site under construction: room prices and final photos are pending confirmation.", "nav.home": "Home", "nav.rooms": "Rooms", "nav.how": "How it works", "nav.owners": "Landlords", "nav.about": "About", "nav.contact": "Contact", "nav.cta": "See rooms", "nav.blog": "What's on in Madrid", "footer.tagline": "Room rentals in shared flats in central Madrid.", "footer.nav_title": "Navigation", "footer.legal_title": "Legal", "footer.rights": "All rights reserved.", "footer.made": "Madrid, Spain", "owners.eyebrow": "For landlords", "owners.title": "We guarantee your rent every month, and zero headaches. That's who we are.", "owners.subtitle": "We sign a lease directly with you: we become your one and only tenant. We take care of keeping your flat occupied room by room, and we absorb that cost ourselves — you simply receive the rent.", "owners.b1": "0% arrears: you get paid every month, no excuses, no delays.", "owners.b2": "0 debt: we take on the risk of non-payment or an empty flat, not you.", "owners.b3": "No commissions: we don't charge you to manage your flat.", "owners.b4": "Utilities covered: water, electricity and internet, also guaranteed.", "owners.cta": "Guarantee your rent today", "owners.card_title": "How we work", "owners.card_body": "We're a leasing company focused on providing solutions both to tenants and to you, the landlord. We guarantee your rent every month, we take care of repairing the small wear-and-tear issues that come up over time, and we handle weekly maintenance and cleaning of the flat. All you have to do? Enjoy the return on your investment.", "owners.g1_label": "Arrears", "owners.g1_body": "You never stop getting paid because a tenant didn't.", "owners.g2_label": "Debt for you", "owners.g2_body": "The risk of non-payment or an empty flat is ours, not yours.", "owners.g3_label": "Commission", "owners.g3_body": "We don't charge to manage your flat. We just guarantee your rent.", "owners.fineprint": "Subject to the rent-guarantee contract signed with each landlord. We'll walk you through everything before you sign anything.", "owners.repairs.eyebrow": "Zero effort for you", "owners.repairs.title": "You just collect the profit. <em>We handle the headache.</em>", "owners.repairs.t1": "Repairs", "owners.repairs.b1": "A leak, a broken boiler, a dead socket: we fix it and we pay for it. You don't lift a finger.", "owners.repairs.t2": "Tenants", "owners.repairs.b2": "We find them, we vet them, we handle every issue with them. You don't talk to anyone unless you want to.", "owners.repairs.t3": "You", "owners.repairs.b3": "You collect your full rent every month. No paperwork, no surprises, no small print.", "owners.repairs.final": "We manage your property for what it is: <span>an asset.</span>"}};
   var CONTACT_URL = "contacto.html";
   var lang = "es";
   try { lang = localStorage.getItem("msl-lang") || "es"; } catch(e){}

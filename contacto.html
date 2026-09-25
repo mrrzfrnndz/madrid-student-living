@@ -25,7 +25,7 @@
   "email": "admin@madrid-student-living.com",
   "telephone": "+447729350595",
   "areaServed": { "@type": "City", "name": "Madrid" },
-  "address": { "@type": "PostalAddress", "streetAddress": "Avenida Reina Victoria, 51", "addressLocality": "Madrid", "addressCountry": "ES" }
+  "address": { "@type": "PostalAddress", "streetAddress": "Avenida Reina Victoria", "addressLocality": "Madrid", "addressCountry": "ES" }
 }
 </script>
 
@@ -96,15 +96,15 @@
   #notice button:hover{opacity:1;}
 
   header{position:sticky; top:0; z-index:50; background:rgba(54,54,54,0.96); backdrop-filter:blur(6px);}
-  .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 24px; gap:20px;}
-  .brand{display:flex; align-items:center; gap:10px; color:var(--cream);}
+  .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 16px; gap:12px;}
+  .brand{display:flex; align-items:center; gap:8px; color:var(--cream); flex:none;}
   .brand img{height:34px; width:34px; border-radius:8px;}
   .brand strong{font-family:'Playfair Display', serif; font-size:18px; font-weight:600; color:var(--cream); white-space:nowrap;}
-  nav.links{display:flex; align-items:center; gap:26px;}
-  nav.links a{color:var(--cream); opacity:.85; font-size:14.5px; font-weight:500;}
+  nav.links{display:flex; align-items:center; gap:15px;}
+  nav.links a{color:var(--cream); opacity:.85; font-size:13px; font-weight:500; white-space:nowrap;}
   nav.links a:hover{opacity:1; color:var(--gold-light);}
   nav.links .current{color:var(--gold-light); opacity:1; font-weight:700; cursor:default; pointer-events:none;}
-  .nav-right{display:flex; align-items:center; gap:14px;}
+  .nav-right{display:flex; align-items:center; gap:10px;}
   .lang-toggle{display:flex; border:1px solid rgba(247,245,241,0.35); border-radius:999px; overflow:hidden;}
   .lang-toggle button{background:none; border:none; color:var(--cream); opacity:.7; padding:6px 12px; font-size:12.5px; font-weight:700;}
   .lang-toggle button.active{background:var(--gold-2); opacity:1;}
@@ -268,7 +268,7 @@
 
 <div id="notice">
   <div class="wrap">
-    <span data-i18n="notice.text">Sitio en construccion: precios por habitacion y fotos definitivas estan pendientes de confirmar.</span>
+    <span data-i18n="notice.text">Sitio en construcción: precios por habitación y fotos definitivas están pendientes de confirmar.</span>
     <button id="notice-close" aria-label="Cerrar aviso">&times;</button>
   </div>
 </div>
@@ -286,6 +286,7 @@
       <a href="como-funciona.html"><span data-i18n="nav.how">Cómo funciona</span></a>
       <a href="propietarios.html"><span data-i18n="nav.owners">Propietarios</span></a>
       <a href="nosotros.html"><span data-i18n="nav.about">Nosotros</span></a>
+      <a href="blog.html"><span data-i18n="nav.blog">Qué pasa en Madrid</span></a>
       <a class="current" aria-current="page"><span data-i18n="nav.contact">Contacto</span></a>
     </nav>
     <div class="nav-right">
@@ -303,6 +304,7 @@
       <a href="como-funciona.html"><span data-i18n="nav.how">Cómo funciona</span></a>
       <a href="propietarios.html"><span data-i18n="nav.owners">Propietarios</span></a>
       <a href="nosotros.html"><span data-i18n="nav.about">Nosotros</span></a>
+      <a href="blog.html"><span data-i18n="nav.blog">Qué pasa en Madrid</span></a>
       <a class="current" aria-current="page"><span data-i18n="nav.contact">Contacto</span></a>
   </div>
 </header>
@@ -335,8 +337,8 @@
         </div>
         <div class="contact-info">
           <div class="item"><div class="ic"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5h18v14H3z"/><path d="M3 7l9 6 9-6"/></svg></div><div><h4 data-i18n="contact.email_label">Email</h4><p><a href="mailto:admin@madrid-student-living.com">admin@madrid-student-living.com</a></p></div></div>
-          <div class="item"><div class="ic"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.4 2.1L8.1 9.7a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.4c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.9 2.2z"/></svg></div><div><h4 data-i18n="contact.phone_label">Telefono</h4><p><a href="tel:+447729350595">+44 7729 350595</a></p></div></div>
-          <div class="item"><div class="ic"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><h4 data-i18n="contact.area_label">Oficina</h4><p>Avenida Reina Victoria, 51 &middot; Madrid</p></div></div>
+          <div class="item"><div class="ic"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.4 2.1L8.1 9.7a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.4c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.9 2.2z"/></svg></div><div><h4 data-i18n="contact.phone_label">Teléfono</h4><p><a href="tel:+447729350595">+44 7729 350595</a></p></div></div>
+          <div class="item"><div class="ic"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><h4 data-i18n="contact.area_label">Oficina</h4><p>Avenida Reina Victoria &middot; Madrid</p></div></div>
         </div>
       </div>
     </div>
@@ -355,7 +357,7 @@
         <p data-i18n="footer.tagline">Alquiler de habitaciones en pisos compartidos en el centro de Madrid.</p>
       </div>
       <div>
-        <h5 data-i18n="footer.nav_title">Navegacion</h5>
+        <h5 data-i18n="footer.nav_title">Navegación</h5>
         <a href="habitaciones.html" style="display:block; margin-bottom:8px;" data-i18n="nav.rooms">Habitaciones</a>
         <a href="propietarios.html" style="display:block; margin-bottom:8px;" data-i18n="nav.owners">Propietarios</a>
         <a href="contacto.html" style="display:block;" data-i18n="nav.contact">Contacto</a>
@@ -363,14 +365,14 @@
       <div>
         <h5 data-i18n="footer.legal_title">Legal</h5>
         <p style="margin:0 0 6px;">Madrid Student Living SL</p>
-        <p style="margin:0 0 6px;">Avenida Reina Victoria, 51 &middot; Madrid</p>
-        <p style="margin:0 0 6px;">CIF: [CIF PENDIENTE]</p>
+        <p style="margin:0 0 6px;">Avenida Reina Victoria &middot; Madrid</p>
+        <p style="margin:0 0 6px;">CIF: B19869965</p>
         <p style="margin:0;"><a href="mailto:admin@madrid-student-living.com">admin@madrid-student-living.com</a> &middot; <a href="tel:+447729350595">+44 7729 350595</a></p>
       </div>
     </div>
     <div class="foot-bottom">
       <span>&copy; <span id="year"></span> Madrid Student Living SL. <span data-i18n="footer.rights">Todos los derechos reservados.</span></span>
-      <span data-i18n="footer.made">Madrid, Espana</span>
+      <span data-i18n="footer.made">Madrid, España</span>
     </div>
   </div>
 </footer>
@@ -379,7 +381,7 @@
 
 (function(){
   "use strict";
-  var I18N = {"es": {"notice.text": "Sitio en construccion: precios por habitacion y fotos definitivas estan pendientes de confirmar.", "nav.home": "Inicio", "nav.rooms": "Habitaciones", "nav.how": "Como funciona", "nav.owners": "Propietarios", "nav.about": "Nosotros", "nav.contact": "Contacto", "nav.cta": "Ver habitaciones", "footer.tagline": "Alquiler de habitaciones en pisos compartidos en el centro de Madrid.", "footer.nav_title": "Navegacion", "footer.legal_title": "Legal", "footer.rights": "Todos los derechos reservados.", "footer.made": "Madrid, Espana", "contact.eyebrow": "Hablemos", "contact.title": "Contacta con nosotros", "contact.subtitle": "Cuentanos que necesitas y te respondemos lo antes posible.", "contact.form.name": "Nombre", "contact.form.email": "Email", "contact.form.type": "Soy...", "contact.form.tenant": "Inquilino/a interesado/a", "contact.form.owner": "Propietario/a", "contact.form.other": "Otro", "contact.form.message": "Mensaje", "contact.form.submit": "Enviar mensaje", "contact.email_label": "Email", "contact.phone_label": "Telefono", "contact.area_label": "Oficina"}, "en": {"notice.text": "Site under construction: room prices and final photos are pending confirmation.", "nav.home": "Home", "nav.rooms": "Rooms", "nav.how": "How it works", "nav.owners": "Landlords", "nav.about": "About", "nav.contact": "Contact", "nav.cta": "See rooms", "footer.tagline": "Room rentals in shared flats in central Madrid.", "footer.nav_title": "Navigation", "footer.legal_title": "Legal", "footer.rights": "All rights reserved.", "footer.made": "Madrid, Spain", "contact.eyebrow": "Get in touch", "contact.title": "Contact us", "contact.subtitle": "Tell us what you need and we'll get back to you as soon as possible.", "contact.form.name": "Name", "contact.form.email": "Email", "contact.form.type": "I am...", "contact.form.tenant": "A prospective tenant", "contact.form.owner": "A landlord", "contact.form.other": "Other", "contact.form.message": "Message", "contact.form.submit": "Send message", "contact.email_label": "Email", "contact.phone_label": "Phone", "contact.area_label": "Office"}};
+  var I18N = {"es": {"notice.text": "Sitio en construcción: precios por habitación y fotos definitivas están pendientes de confirmar.", "nav.home": "Inicio", "nav.rooms": "Habitaciones", "nav.how": "Cómo funciona", "nav.owners": "Propietarios", "nav.about": "Nosotros", "nav.contact": "Contacto", "nav.cta": "Ver habitaciones", "nav.blog": "Qué pasa en Madrid", "footer.tagline": "Alquiler de habitaciones en pisos compartidos en el centro de Madrid.", "footer.nav_title": "Navegación", "footer.legal_title": "Legal", "footer.rights": "Todos los derechos reservados.", "footer.made": "Madrid, España", "contact.eyebrow": "Hablemos", "contact.title": "Contacta con nosotros", "contact.subtitle": "Cuentanos que necesitas y te respondemos lo antes posible.", "contact.form.name": "Nombre", "contact.form.email": "Email", "contact.form.type": "Soy...", "contact.form.tenant": "Inquilino/a interesado/a", "contact.form.owner": "Propietario/a", "contact.form.other": "Otro", "contact.form.message": "Mensaje", "contact.form.submit": "Enviar mensaje", "contact.email_label": "Email", "contact.phone_label": "Teléfono", "contact.area_label": "Oficina"}, "en": {"notice.text": "Site under construction: room prices and final photos are pending confirmation.", "nav.home": "Home", "nav.rooms": "Rooms", "nav.how": "How it works", "nav.owners": "Landlords", "nav.about": "About", "nav.contact": "Contact", "nav.cta": "See rooms", "nav.blog": "What\'s on in Madrid", "footer.tagline": "Room rentals in shared flats in central Madrid.", "footer.nav_title": "Navigation", "footer.legal_title": "Legal", "footer.rights": "All rights reserved.", "footer.made": "Madrid, Spain", "contact.eyebrow": "Get in touch", "contact.title": "Contact us", "contact.subtitle": "Tell us what you need and we'll get back to you as soon as possible.", "contact.form.name": "Name", "contact.form.email": "Email", "contact.form.type": "I am...", "contact.form.tenant": "A prospective tenant", "contact.form.owner": "A landlord", "contact.form.other": "Other", "contact.form.message": "Message", "contact.form.submit": "Send message", "contact.email_label": "Email", "contact.phone_label": "Phone", "contact.area_label": "Office"}};
   var CONTACT_URL = "contacto.html";
   var lang = "es";
   try { lang = localStorage.getItem("msl-lang") || "es"; } catch(e){}
@@ -443,7 +445,7 @@ document.addEventListener("DOMContentLoaded", function(){
   if (type && typeField) typeField.value = type;
   if (room && msgField && !msgField.value){
     var lang = window.__msl ? window.__msl.lang : "es";
-    msgField.value = (lang === "es" ? "Hola, me interesa la habitacion " : "Hi, I'm interested in room ") + room + ".";
+    msgField.value = (lang === "es" ? "Hola, me interesa la habitación " : "Hi, I'm interested in room ") + room + ".";
   }
   var form = document.getElementById("contact-form");
   if (form){

@@ -25,7 +25,7 @@
   "email": "admin@madrid-student-living.com",
   "telephone": "+447729350595",
   "areaServed": { "@type": "City", "name": "Madrid" },
-  "address": { "@type": "PostalAddress", "streetAddress": "Avenida Reina Victoria, 51", "addressLocality": "Madrid", "addressCountry": "ES" }
+  "address": { "@type": "PostalAddress", "streetAddress": "Avenida Reina Victoria", "addressLocality": "Madrid", "addressCountry": "ES" }
 }
 </script>
 
@@ -96,15 +96,15 @@
   #notice button:hover{opacity:1;}
 
   header{position:sticky; top:0; z-index:50; background:rgba(54,54,54,0.96); backdrop-filter:blur(6px);}
-  .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 24px; gap:20px;}
-  .brand{display:flex; align-items:center; gap:10px; color:var(--cream);}
+  .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 16px; gap:12px;}
+  .brand{display:flex; align-items:center; gap:8px; color:var(--cream); flex:none;}
   .brand img{height:34px; width:34px; border-radius:8px;}
   .brand strong{font-family:'Playfair Display', serif; font-size:18px; font-weight:600; color:var(--cream); white-space:nowrap;}
-  nav.links{display:flex; align-items:center; gap:26px;}
-  nav.links a{color:var(--cream); opacity:.85; font-size:14.5px; font-weight:500;}
+  nav.links{display:flex; align-items:center; gap:15px;}
+  nav.links a{color:var(--cream); opacity:.85; font-size:13px; font-weight:500; white-space:nowrap;}
   nav.links a:hover{opacity:1; color:var(--gold-light);}
   nav.links .current{color:var(--gold-light); opacity:1; font-weight:700; cursor:default; pointer-events:none;}
-  .nav-right{display:flex; align-items:center; gap:14px;}
+  .nav-right{display:flex; align-items:center; gap:10px;}
   .lang-toggle{display:flex; border:1px solid rgba(247,245,241,0.35); border-radius:999px; overflow:hidden;}
   .lang-toggle button{background:none; border:none; color:var(--cream); opacity:.7; padding:6px 12px; font-size:12.5px; font-weight:700;}
   .lang-toggle button.active{background:var(--gold-2); opacity:1;}
@@ -268,7 +268,7 @@
 
 <div id="notice">
   <div class="wrap">
-    <span data-i18n="notice.text">Sitio en construccion: precios por habitacion y fotos definitivas estan pendientes de confirmar.</span>
+    <span data-i18n="notice.text">Sitio en construcción: precios por habitación y fotos definitivas están pendientes de confirmar.</span>
     <button id="notice-close" aria-label="Cerrar aviso">&times;</button>
   </div>
 </div>
@@ -286,6 +286,7 @@
       <a class="current" aria-current="page"><span data-i18n="nav.how">Cómo funciona</span></a>
       <a href="propietarios.html"><span data-i18n="nav.owners">Propietarios</span></a>
       <a href="nosotros.html"><span data-i18n="nav.about">Nosotros</span></a>
+      <a href="blog.html"><span data-i18n="nav.blog">Qué pasa en Madrid</span></a>
       <a href="contacto.html"><span data-i18n="nav.contact">Contacto</span></a>
     </nav>
     <div class="nav-right">
@@ -303,6 +304,7 @@
       <a class="current" aria-current="page"><span data-i18n="nav.how">Cómo funciona</span></a>
       <a href="propietarios.html"><span data-i18n="nav.owners">Propietarios</span></a>
       <a href="nosotros.html"><span data-i18n="nav.about">Nosotros</span></a>
+      <a href="blog.html"><span data-i18n="nav.blog">Qué pasa en Madrid</span></a>
       <a href="contacto.html"><span data-i18n="nav.contact">Contacto</span></a>
   </div>
 </header>
@@ -312,13 +314,13 @@
   <section class="page-hero">
     <div class="wrap">
       <span class="eyebrow" data-i18n="how.eyebrow">Para inquilinos</span>
-      <h1 data-i18n="how.title">Asi de facil es mudarte con nosotros</h1>
+      <h1 data-i18n="how.title">Así de fácil es mudarte con nosotros</h1>
     </div>
   </section>
   <section class="section-white">
     <div class="wrap">
       <div class="steps">
-        <div class="step"><div class="num">01</div><h3 data-i18n="how.s1.title">Explora</h3><p data-i18n="how.s1.body">Mira las habitaciones disponibles y elige la zona que mas te encaje.</p></div>
+        <div class="step"><div class="num">01</div><h3 data-i18n="how.s1.title">Explora</h3><p data-i18n="how.s1.body">Mira las habitaciones disponibles y elige la zona que más te encaje.</p></div>
         <div class="step"><div class="num">02</div><h3 data-i18n="how.s2.title">Contacta</h3><p data-i18n="how.s2.body">Escribenos y te resolvemos todas las dudas, sin compromiso.</p></div>
         <div class="step"><div class="num">03</div><h3 data-i18n="how.s3.title">Visita</h3><p data-i18n="how.s3.body">Conoce el piso en persona o por videollamada antes de decidir.</p></div>
         <div class="step"><div class="num">04</div><h3 data-i18n="how.s4.title">Mudate</h3><p data-i18n="how.s4.body">Firma, recoge las llaves y empieza tu etapa en Madrid.</p></div>
@@ -336,24 +338,24 @@
       </div>
       <div class="faq">
         <details class="faq-item" open>
-          <summary data-i18n="faq.q1">Que incluye el precio del alquiler?</summary>
-          <p data-i18n="faq.a1">Cada habitacion indica que incluye. Te confirmamos los detalles exactos al consultar.</p>
+          <summary data-i18n="faq.q1">Qué incluye el precio del alquiler?</summary>
+          <p data-i18n="faq.a1">Cada habitación indica que incluye. Te confirmamos los detalles exactos al consultar.</p>
         </details>
         <details class="faq-item">
           <summary data-i18n="faq.q2">Puedo visitar antes de reservar?</summary>
           <p data-i18n="faq.a2">Si, organizamos visitas presenciales o por videollamada segun disponibilidad.</p>
         </details>
         <details class="faq-item">
-          <summary data-i18n="faq.q3">Cual es la duracion minima del contrato?</summary>
+          <summary data-i18n="faq.q3">Cuál es la duración mínima del contrato?</summary>
           <p data-i18n="faq.a3">Depende del piso y la temporada. Te la confirmamos al contactar con nosotros.</p>
         </details>
         <details class="faq-item">
           <summary data-i18n="faq.q4">Necesito aval o fiador?</summary>
-          <p data-i18n="faq.a4">Depende del piso y tu situacion. Te contamos los requisitos concretos al consultar.</p>
+          <p data-i18n="faq.a4">Depende del piso y tu situación. Te contamos los requisitos concretos al consultar.</p>
         </details>
         <details class="faq-item">
-          <summary data-i18n="faq.q5">Como reservo una habitacion?</summary>
-          <p data-i18n="faq.a5">Escribenos desde el formulario de contacto indicando la habitacion que te interesa.</p>
+          <summary data-i18n="faq.q5">Cómo reservo una habitación?</summary>
+          <p data-i18n="faq.a5">Escribenos desde el formulario de contacto indicando la habitación que te interesa.</p>
         </details>
       </div>
     </div>
@@ -372,7 +374,7 @@
         <p data-i18n="footer.tagline">Alquiler de habitaciones en pisos compartidos en el centro de Madrid.</p>
       </div>
       <div>
-        <h5 data-i18n="footer.nav_title">Navegacion</h5>
+        <h5 data-i18n="footer.nav_title">Navegación</h5>
         <a href="habitaciones.html" style="display:block; margin-bottom:8px;" data-i18n="nav.rooms">Habitaciones</a>
         <a href="propietarios.html" style="display:block; margin-bottom:8px;" data-i18n="nav.owners">Propietarios</a>
         <a href="contacto.html" style="display:block;" data-i18n="nav.contact">Contacto</a>
@@ -380,14 +382,14 @@
       <div>
         <h5 data-i18n="footer.legal_title">Legal</h5>
         <p style="margin:0 0 6px;">Madrid Student Living SL</p>
-        <p style="margin:0 0 6px;">Avenida Reina Victoria, 51 &middot; Madrid</p>
-        <p style="margin:0 0 6px;">CIF: [CIF PENDIENTE]</p>
+        <p style="margin:0 0 6px;">Avenida Reina Victoria &middot; Madrid</p>
+        <p style="margin:0 0 6px;">CIF: B19869965</p>
         <p style="margin:0;"><a href="mailto:admin@madrid-student-living.com">admin@madrid-student-living.com</a> &middot; <a href="tel:+447729350595">+44 7729 350595</a></p>
       </div>
     </div>
     <div class="foot-bottom">
       <span>&copy; <span id="year"></span> Madrid Student Living SL. <span data-i18n="footer.rights">Todos los derechos reservados.</span></span>
-      <span data-i18n="footer.made">Madrid, Espana</span>
+      <span data-i18n="footer.made">Madrid, España</span>
     </div>
   </div>
 </footer>
@@ -396,7 +398,7 @@
 
 (function(){
   "use strict";
-  var I18N = {"es": {"notice.text": "Sitio en construccion: precios por habitacion y fotos definitivas estan pendientes de confirmar.", "nav.home": "Inicio", "nav.rooms": "Habitaciones", "nav.how": "Como funciona", "nav.owners": "Propietarios", "nav.about": "Nosotros", "nav.contact": "Contacto", "nav.cta": "Ver habitaciones", "footer.tagline": "Alquiler de habitaciones en pisos compartidos en el centro de Madrid.", "footer.nav_title": "Navegacion", "footer.legal_title": "Legal", "footer.rights": "Todos los derechos reservados.", "footer.made": "Madrid, Espana", "how.eyebrow": "Para inquilinos", "how.title": "Asi de facil es mudarte con nosotros", "how.s1.title": "Explora", "how.s1.body": "Mira las habitaciones disponibles y elige la zona que mas te encaje.", "how.s2.title": "Contacta", "how.s2.body": "Escribenos y te resolvemos todas las dudas, sin compromiso.", "how.s3.title": "Visita", "how.s3.body": "Conoce el piso en persona o por videollamada antes de decidir.", "how.s4.title": "Mudate", "how.s4.body": "Firma, recoge las llaves y empieza tu etapa en Madrid.", "faq.eyebrow": "Preguntas frecuentes", "faq.title": "Todo lo que necesitas saber", "faq.q1": "Que incluye el precio del alquiler?", "faq.a1": "Cada habitacion indica que incluye (suministros, wifi, limpieza de zonas comunes). Te confirmamos los detalles exactos al consultar.", "faq.q2": "Puedo visitar antes de reservar?", "faq.a2": "Si, organizamos visitas presenciales o por videollamada segun disponibilidad.", "faq.q3": "Cual es la duracion minima del contrato?", "faq.a3": "Depende del piso y la temporada. Te la confirmamos al contactar con nosotros.", "faq.q4": "Necesito aval o fiador?", "faq.a4": "Depende del piso y tu situacion. Te contamos los requisitos concretos al consultar disponibilidad.", "faq.q5": "Como reservo una habitacion?", "faq.a5": "Escribenos desde el formulario de contacto indicando la habitacion que te interesa. Te responderemos con los siguientes pasos.", "how.cta": "Ver habitaciones disponibles"}, "en": {"notice.text": "Site under construction: room prices and final photos are pending confirmation.", "nav.home": "Home", "nav.rooms": "Rooms", "nav.how": "How it works", "nav.owners": "Landlords", "nav.about": "About", "nav.contact": "Contact", "nav.cta": "See rooms", "footer.tagline": "Room rentals in shared flats in central Madrid.", "footer.nav_title": "Navigation", "footer.legal_title": "Legal", "footer.rights": "All rights reserved.", "footer.made": "Madrid, Spain", "how.eyebrow": "For tenants", "how.title": "Moving in with us is this easy", "how.s1.title": "Explore", "how.s1.body": "Browse the available rooms and pick the area that suits you.", "how.s2.title": "Contact us", "how.s2.body": "Message us and we'll answer every question, no strings attached.", "how.s3.title": "Visit", "how.s3.body": "See the flat in person or via video call before deciding.", "how.s4.title": "Move in", "how.s4.body": "Sign, grab the keys, and start your chapter in Madrid.", "faq.eyebrow": "FAQ", "faq.title": "Everything you need to know", "faq.q1": "What's included in the rent?", "faq.a1": "Each room lists what's included (utilities, wifi, cleaning of common areas). We confirm the exact details when you get in touch.", "faq.q2": "Can I visit before booking?", "faq.a2": "Yes, we arrange in-person or video-call viewings depending on availability.", "faq.q3": "What's the minimum contract length?", "faq.a3": "It depends on the flat and season. We'll confirm it when you contact us.", "faq.q4": "Do I need a guarantor?", "faq.a4": "It depends on the flat and your situation. We'll walk you through the exact requirements when you check availability.", "faq.q5": "How do I book a room?", "faq.a5": "Message us through the contact form naming the room you're interested in. We'll reply with next steps.", "how.cta": "See available rooms"}};
+  var I18N = {"es": {"notice.text": "Sitio en construcción: precios por habitación y fotos definitivas están pendientes de confirmar.", "nav.home": "Inicio", "nav.rooms": "Habitaciones", "nav.how": "Cómo funciona", "nav.owners": "Propietarios", "nav.about": "Nosotros", "nav.contact": "Contacto", "nav.cta": "Ver habitaciones", "nav.blog": "Qué pasa en Madrid", "footer.tagline": "Alquiler de habitaciones en pisos compartidos en el centro de Madrid.", "footer.nav_title": "Navegación", "footer.legal_title": "Legal", "footer.rights": "Todos los derechos reservados.", "footer.made": "Madrid, España", "how.eyebrow": "Para inquilinos", "how.title": "Así de fácil es mudarte con nosotros", "how.s1.title": "Explora", "how.s1.body": "Mira las habitaciones disponibles y elige la zona que más te encaje.", "how.s2.title": "Contacta", "how.s2.body": "Escribenos y te resolvemos todas las dudas, sin compromiso.", "how.s3.title": "Visita", "how.s3.body": "Conoce el piso en persona o por videollamada antes de decidir.", "how.s4.title": "Mudate", "how.s4.body": "Firma, recoge las llaves y empieza tu etapa en Madrid.", "faq.eyebrow": "Preguntas frecuentes", "faq.title": "Todo lo que necesitas saber", "faq.q1": "Qué incluye el precio del alquiler?", "faq.a1": "Cada habitación indica que incluye (suministros, wifi, limpieza de zonas comunes). Te confirmamos los detalles exactos al consultar.", "faq.q2": "Puedo visitar antes de reservar?", "faq.a2": "Si, organizamos visitas presenciales o por videollamada segun disponibilidad.", "faq.q3": "Cuál es la duración mínima del contrato?", "faq.a3": "Depende del piso y la temporada. Te la confirmamos al contactar con nosotros.", "faq.q4": "Necesito aval o fiador?", "faq.a4": "Depende del piso y tu situación. Te contamos los requisitos concretos al consultar disponibilidad.", "faq.q5": "Cómo reservo una habitación?", "faq.a5": "Escribenos desde el formulario de contacto indicando la habitación que te interesa. Te responderemos con los siguientes pasos.", "how.cta": "Ver habitaciones disponibles"}, "en": {"notice.text": "Site under construction: room prices and final photos are pending confirmation.", "nav.home": "Home", "nav.rooms": "Rooms", "nav.how": "How it works", "nav.owners": "Landlords", "nav.about": "About", "nav.contact": "Contact", "nav.cta": "See rooms", "nav.blog": "What\'s on in Madrid", "footer.tagline": "Room rentals in shared flats in central Madrid.", "footer.nav_title": "Navigation", "footer.legal_title": "Legal", "footer.rights": "All rights reserved.", "footer.made": "Madrid, Spain", "how.eyebrow": "For tenants", "how.title": "Moving in with us is this easy", "how.s1.title": "Explore", "how.s1.body": "Browse the available rooms and pick the area that suits you.", "how.s2.title": "Contact us", "how.s2.body": "Message us and we'll answer every question, no strings attached.", "how.s3.title": "Visit", "how.s3.body": "See the flat in person or via video call before deciding.", "how.s4.title": "Move in", "how.s4.body": "Sign, grab the keys, and start your chapter in Madrid.", "faq.eyebrow": "FAQ", "faq.title": "Everything you need to know", "faq.q1": "What's included in the rent?", "faq.a1": "Each room lists what's included (utilities, wifi, cleaning of common areas). We confirm the exact details when you get in touch.", "faq.q2": "Can I visit before booking?", "faq.a2": "Yes, we arrange in-person or video-call viewings depending on availability.", "faq.q3": "What's the minimum contract length?", "faq.a3": "It depends on the flat and season. We'll confirm it when you contact us.", "faq.q4": "Do I need a guarantor?", "faq.a4": "It depends on the flat and your situation. We'll walk you through the exact requirements when you check availability.", "faq.q5": "How do I book a room?", "faq.a5": "Message us through the contact form naming the room you're interested in. We'll reply with next steps.", "how.cta": "See available rooms"}};
   var CONTACT_URL = "contacto.html";
   var lang = "es";
   try { lang = localStorage.getItem("msl-lang") || "es"; } catch(e){}
