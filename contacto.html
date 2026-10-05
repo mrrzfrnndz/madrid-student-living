@@ -241,6 +241,10 @@
   @media (max-width:900px){.contact-grid{grid-template-columns:1fr;}}
   .contact-card{background:var(--white); border:1px solid var(--line); border-radius:var(--radius); padding:30px; box-shadow:var(--shadow);}
   form .field{margin-bottom:16px;}
+  .form-status{margin-top:14px; padding:12px 14px; border-radius:10px; font-size:14px; display:none;}
+  .form-status.ok{display:block; background:#eef6ee; color:#2f6b3a; border:1px solid #cfe5d2;}
+  .form-status.err{display:block; background:#fbeeee; color:#8a2f2f; border:1px solid #efcaca;}
+  .hp-field{position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden;}
   form label{display:block; font-size:13px; font-weight:600; margin-bottom:6px; color:var(--charcoal-2);}
   form input, form select, form textarea{
     width:100%; padding:12px 14px; border-radius:10px; border:1px solid var(--line); font-family:inherit; font-size:14.5px; background:var(--cream);
@@ -332,7 +336,9 @@
               </select>
             </div>
             <div class="field"><label data-i18n="contact.form.message">Mensaje</label><textarea id="f-message" required></textarea></div>
-            <button type="submit" class="btn btn-gold" style="width:100%;" data-i18n="contact.form.submit">Enviar mensaje</button>
+            <div class="hp-field" aria-hidden="true"><label>No rellenar</label><input type="text" id="f-hp" name="_honey" tabindex="-1" autocomplete="off"></div>
+            <button type="submit" class="btn btn-gold" id="f-submit" style="width:100%;" data-i18n="contact.form.submit">Enviar mensaje</button>
+            <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
           </form>
         </div>
         <div class="contact-info">
@@ -381,7 +387,7 @@
 
 (function(){
   "use strict";
-  var I18N = {"es": {"notice.text": "Sitio en construcción: precios por habitación y fotos definitivas están pendientes de confirmar.", "nav.home": "Inicio", "nav.rooms": "Habitaciones", "nav.how": "Cómo funciona", "nav.owners": "Propietarios", "nav.about": "Nosotros", "nav.contact": "Contacto", "nav.cta": "Ver habitaciones", "nav.blog": "Qué pasa en Madrid", "footer.tagline": "Alquiler de habitaciones en pisos compartidos en el centro de Madrid.", "footer.nav_title": "Navegación", "footer.legal_title": "Legal", "footer.rights": "Todos los derechos reservados.", "footer.made": "Madrid, España", "contact.eyebrow": "Hablemos", "contact.title": "Contacta con nosotros", "contact.subtitle": "Cuentanos que necesitas y te respondemos lo antes posible.", "contact.form.name": "Nombre", "contact.form.email": "Email", "contact.form.type": "Soy...", "contact.form.tenant": "Inquilino/a interesado/a", "contact.form.owner": "Propietario/a", "contact.form.other": "Otro", "contact.form.message": "Mensaje", "contact.form.submit": "Enviar mensaje", "contact.email_label": "Email", "contact.phone_label": "Teléfono", "contact.area_label": "Oficina"}, "en": {"notice.text": "Site under construction: room prices and final photos are pending confirmation.", "nav.home": "Home", "nav.rooms": "Rooms", "nav.how": "How it works", "nav.owners": "Landlords", "nav.about": "About", "nav.contact": "Contact", "nav.cta": "See rooms", "nav.blog": "What\'s on in Madrid", "footer.tagline": "Room rentals in shared flats in central Madrid.", "footer.nav_title": "Navigation", "footer.legal_title": "Legal", "footer.rights": "All rights reserved.", "footer.made": "Madrid, Spain", "contact.eyebrow": "Get in touch", "contact.title": "Contact us", "contact.subtitle": "Tell us what you need and we'll get back to you as soon as possible.", "contact.form.name": "Name", "contact.form.email": "Email", "contact.form.type": "I am...", "contact.form.tenant": "A prospective tenant", "contact.form.owner": "A landlord", "contact.form.other": "Other", "contact.form.message": "Message", "contact.form.submit": "Send message", "contact.email_label": "Email", "contact.phone_label": "Phone", "contact.area_label": "Office"}};
+  var I18N = {"es": {"notice.text": "Sitio en construcción: precios por habitación y fotos definitivas están pendientes de confirmar.", "nav.home": "Inicio", "nav.rooms": "Habitaciones", "nav.how": "Cómo funciona", "nav.owners": "Propietarios", "nav.about": "Nosotros", "nav.contact": "Contacto", "nav.cta": "Ver habitaciones", "nav.blog": "Qué pasa en Madrid", "footer.tagline": "Alquiler de habitaciones en pisos compartidos en el centro de Madrid.", "footer.nav_title": "Navegación", "footer.legal_title": "Legal", "footer.rights": "Todos los derechos reservados.", "footer.made": "Madrid, España", "contact.eyebrow": "Hablemos", "contact.title": "Contacta con nosotros", "contact.subtitle": "Cuentanos que necesitas y te respondemos lo antes posible.", "contact.form.name": "Nombre", "contact.form.email": "Email", "contact.form.type": "Soy...", "contact.form.tenant": "Inquilino/a interesado/a", "contact.form.owner": "Propietario/a", "contact.form.other": "Otro", "contact.form.message": "Mensaje", "contact.form.submit": "Enviar mensaje", "contact.form.sending": "Enviando...", "contact.form.success": "¡Mensaje enviado! Te responderemos lo antes posible.", "contact.form.error": "No hemos podido enviar el mensaje. Inténtalo de nuevo o escríbenos a admin@madrid-student-living.com.", "contact.email_label": "Email", "contact.phone_label": "Teléfono", "contact.area_label": "Oficina"}, "en": {"notice.text": "Site under construction: room prices and final photos are pending confirmation.", "nav.home": "Home", "nav.rooms": "Rooms", "nav.how": "How it works", "nav.owners": "Landlords", "nav.about": "About", "nav.contact": "Contact", "nav.cta": "See rooms", "nav.blog": "What\'s on in Madrid", "footer.tagline": "Room rentals in shared flats in central Madrid.", "footer.nav_title": "Navigation", "footer.legal_title": "Legal", "footer.rights": "All rights reserved.", "footer.made": "Madrid, Spain", "contact.eyebrow": "Get in touch", "contact.title": "Contact us", "contact.subtitle": "Tell us what you need and we'll get back to you as soon as possible.", "contact.form.name": "Name", "contact.form.email": "Email", "contact.form.type": "I am...", "contact.form.tenant": "A prospective tenant", "contact.form.owner": "A landlord", "contact.form.other": "Other", "contact.form.message": "Message", "contact.form.submit": "Send message", "contact.form.sending": "Sending...", "contact.form.success": "Message sent! We will get back to you as soon as possible.", "contact.form.error": "We could not send your message. Please try again or email us at admin@madrid-student-living.com.", "contact.email_label": "Email", "contact.phone_label": "Phone", "contact.area_label": "Office"}};
   var CONTACT_URL = "contacto.html";
   var lang = "es";
   try { lang = localStorage.getItem("msl-lang") || "es"; } catch(e){}
@@ -452,13 +458,46 @@ document.addEventListener("DOMContentLoaded", function(){
     form.addEventListener("submit", function(e){
       e.preventDefault();
       var lang = window.__msl ? window.__msl.lang : "es";
+      var dict = window.__msl.I18N[lang];
+      var statusEl = document.getElementById("form-status");
+      var btn = document.getElementById("f-submit");
+      // Anti-spam: si el campo trampa esta relleno, es un bot; fingimos exito.
+      if (document.getElementById("f-hp").value){
+        statusEl.className = "form-status ok"; statusEl.textContent = dict["contact.form.success"]; return;
+      }
       var name = document.getElementById("f-name").value;
       var email = document.getElementById("f-email").value;
       var type2 = document.getElementById("f-type").value;
       var message = document.getElementById("f-message").value;
-      var subject = encodeURIComponent("Consulta web (" + type2 + ") - " + name);
-      var body = encodeURIComponent(message + "\n\n" + (lang==="es"?"Email de contacto":"Contact email") + ": " + email);
-      window.location.href = "mailto:admin@madrid-student-living.com?subject=" + subject + "&body=" + body;
+      var originalLabel = btn.textContent;
+      btn.disabled = true; btn.textContent = dict["contact.form.sending"];
+      statusEl.className = "form-status"; statusEl.textContent = "";
+      // Envio real por email (servicio FormSubmit): llega a admin@madrid-student-living.com.
+      // El campo "email" se usa automaticamente como Reply-To.
+      fetch("https://formsubmit.co/ajax/admin@madrid-student-living.com", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify({
+          _subject: "Consulta web (" + type2 + ") - " + name,
+          _template: "table",
+          _captcha: "false",
+          Nombre: name,
+          email: email,
+          Tipo: type2,
+          Idioma: lang,
+          Mensaje: message
+        })
+      }).then(function(r){ return r.json().catch(function(){ return {}; }).then(function(j){ return { ok: r.ok, body: j }; }); })
+      .then(function(res){
+        if (res.ok && String(res.body.success) !== "false"){
+          statusEl.className = "form-status ok"; statusEl.textContent = dict["contact.form.success"];
+          form.reset();
+        } else { throw new Error("send failed"); }
+      }).catch(function(){
+        statusEl.className = "form-status err"; statusEl.textContent = dict["contact.form.error"];
+      }).then(function(){
+        btn.disabled = false; btn.textContent = originalLabel;
+      });
     });
   }
 });
